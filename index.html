@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    p {
+      text-align: center;
+      width: 60px;
+      height: auto;
+      padding-top: 20px;
+    }
+    .leftDiv {
+      float: left;
+      width: 50%;
+    }
+    .selected {
+      border: 1px solid black;
+      border-radius: 50%;
+      padding: 10px;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rock, paper, Scissors</title>
+    <script src="E:\New folder\AssignmentNo.3\Task 4\consoleFinal.js"></script>
+    <!-- <script src="E:\New folder\AssignmentNo.3\Task 4\game.js"></script> -->
+  </head>
+  <body>
+    <div class="leftDiv">
+      <p id="Rock">Rock</p>
+      <p id="Paper">Paper</p>
+      <p id="Scissors">Scissors</p>
+      <button id="Rock" class="" onClick="clicked(this.id)">Rock</button>
+      <button id="Paper" class="" onClick="clicked(this.id)">Paper</button>
+      <button id="Scissors" class="" onClick="clicked(this.id)">
+        Scissors
+      </button>
+    </div>
+    <div class="leftDiv">
+      <p>Computer's Choice</p>
+      <button id="" class="" onClick="computerPlay()">Press</button>
+      <p id="computersChoice"></p>
+    </div>
+    <div class="clear"></div>
+
+    <h1 id="result"></h1>
+    <div id="myDiv">
+      <input type="button" onclick="myFunction()" value="Reset form" />
+    </div>
+
+    <script>
+      function myFunction() {
+        document.getElementById("myDiv").reset();
+      }
+    </script>
+  </body>
+</html>
