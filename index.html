@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Rock, paper, Scissors</title>
-    <script src="E:\New folder\AssignmentNo.3\Task 4\consoleFinal.js"></script>
+    <script src="E:\New folder\AssignmentNo.4\console.js"></script>
     <!-- <script src="E:\New folder\AssignmentNo.3\Task 4\game.js"></script> -->
   </head>
   <body>
@@ -43,15 +43,11 @@
     </div>
     <div class="clear"></div>
 
-    <h1 id="result"></h1>
-    <div id="myDiv">
-      <input type="button" onclick="myFunction()" value="Reset form" />
+    <h3 id="result"></h3>
+    <div id="resetDiv" style="visibility: hidden;">
+      <input type="button" onClick="resetGame()" value="Reset" />
     </div>
 
-    <script>
-      function myFunction() {
-        document.getElementById("myDiv").reset();
-      }
-    </script>
+    <h1 style="text-align: center;" id="finalResult"></h1>
   </body>
 </html>

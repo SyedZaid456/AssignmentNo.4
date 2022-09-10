@@ -1,4 +1,5 @@
 var playerChoice = "";
+var computerChoice = "";
 var result = "";
 let computerPoints = 0;
 let playerPoints = 0;
@@ -9,7 +10,7 @@ function computerPlay() {
   var choice = options[Math.floor(Math.random() * options.length)];
   console.log(choice);
   document.getElementById("computersChoice").innerHTML = choice;
-  options.setattribute("disabled",1)
+  // options.setattribute("disabled", 1);
   conditions(playerChoice, choice);
 }
 
@@ -27,10 +28,6 @@ function clicked(id) {
 
 function conditions(playerChoice, computerChoice) {
   let rewrite = document.getElementById("result");
-  //const result = document.querySelector('.result');
-  //const playerScoreBoard = document.querySelector("playerChoice");
-  //const computerScoreBoard = document.querySelector("computerChoice");
-  //document.getElementById("reset").reset();
 
   if (playerChoice === computerChoice) {
     result = "This is a draw";
@@ -52,46 +49,23 @@ function conditions(playerChoice, computerChoice) {
   } else if (playerChoice == "Scissors" && computerChoice == "Paper") {
     playerPoints++;
     result = "player wins";
-  } else if (
-    (playerPoints == 3 && computerPoints == 2) ||
-    computerPoints == 1 ||
-    computerPoints == 0
-  ) {
-    result = "Player Wins the round";
-    document.removeChild(document.documentElement);
-  } else if (
-    (computerPoints == 3 && playerPoints == 2) ||
-    playerPoints == 1 ||
-    playerPoints == 0
-  ) {
-    result = "Computer wins the round";
-    document.removeChild(document.documentElement);
   }
-  else if(userScore === 5){
-    // show the result & show a button to play again
-    result_p.innerHTML='Game over, you win! <button onclick="endGame()">Click here to play again</button>';
-  
-  rewrite.innerHTML =
-    result +
-    ". " +
-    `Player Score: ${playerPoints}. Computer Score: ${computerPoints}`;
-  // game();
-  
-}
-conditions(playerChoice, computerChoice);
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    if (result == "player wins") {
-      playerPoints++;
-      document.write("Player wins--> player has one point");
-      document.write(playerPoints);
-    } else if (result == "Computer wins") {
-      computerPoints++;
-      document.write("Computer wins--> computer has one point");
-      document.write(computerPoints);
-    } else if (result == "This is a draw") {
-      document.write("This is a draw. No one has any point");
+  rewrite.innerHTML = `${result}. Player Score: ${playerPoints}. Computer Score: ${computerPoints}`;
+
+  if (Number(playerPoints) + Number(computerPoints) === 5) {
+    let finalResult;
+    if (Number(playerPoints) > Number(computerPoints)) {
+      finalResult = `Player Wins with score: ${playerPoints} - ${computerPoints}`;
+    } else if (Number(computerPoints) > Number(playerPoints)) {
+      finalResult = `Computer Wins with score: ${computerPoints} - ${playerPoints}`;
     }
+    document.getElementById("finalResult").innerHTML = finalResult;
+
+    document.getElementById("resetDiv").style.visibility = "visible";
   }
+}
+
+function resetGame() {
+  window.location.reload();
 }
